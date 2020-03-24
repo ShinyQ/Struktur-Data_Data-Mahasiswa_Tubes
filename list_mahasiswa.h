@@ -1,5 +1,5 @@
-#ifndef LIST_MAHASISWA_H_INCLUDED
-#define LIST_MAHASISWA_H_INCLUDED
+#ifndef LIST_mahasiswa_H_INCLUDED
+#define LIST_mahasiswa_H_INCLUDED
 
 #include <iostream>
 using namespace std;

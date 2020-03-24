@@ -6,15 +6,15 @@ using namespace std;
 
 #define next(P) P->next
 #define first(L) L.first
-#define child(P) P->child
-#define parent(P) P->parent
+#define matkul(P) P->matkul
+#define mahasiswa(P) P->mahasiswa
 
 typedef struct elmlist_relasi *address_relasi;
 
 struct elmlist_relasi{
     address_relasi next;
-    address_child child;
-    address_parent parent;
+    address_matkul matkul;
+    address_mahasiswa mahasiswa;
 };
 
 struct List_relasi{
@@ -32,8 +32,8 @@ void deleteAfter(address_relasi Prec, address_relasi &P);
 
 
 /** PERLU MODIFIKASI */
-address_relasi alokasi( address_parent P, address_child C);
+address_relasi alokasi( address_mahasiswa P, address_matkul C);
 void dealokasi(address_relasi &P);
-address_relasi findElm(List_relasi L, address_parent P, address_child C);
+address_relasi findElm(List_relasi L, address_mahasiswa P, address_matkul C);
 void printInfo(List_relasi L);
 
