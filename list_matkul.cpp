@@ -1,19 +1,19 @@
 #include "list_matkul.h"
 
-void createList(List_child &L) {
+void createList(List_matkul &L) {
     first(L) = NULL;
     last(L) = NULL;
 }
 
-address_child alokasi(infotype_child x) {
-    address_child P = new elmlist_child;
+address_matkul alokasi(infotype_matkul x) {
+    address_matkul P = new elmlist_matkul;
     info(P) = x;
     next(P) = NULL;
     prev(P) = NULL;
     return P;
 }
 
-void insertFirst(List_child &L, address_child P) {
+void insertFirst(List_matkul &L, address_matkul P) {
     if(first(L) == NULL) {
         last(L) = P;
         first(L) = P;
@@ -24,8 +24,8 @@ void insertFirst(List_child &L, address_child P) {
     }
 }
 
-void printInfo(List_child L) {
-    address_child P = first(L);
+void printInfo(List_matkul L) {
+    address_matkul P = first(L);
     while(P !=NULL) {
         cout<<"->"<<info(P)<<endl;
         P = next(P);
@@ -33,8 +33,8 @@ void printInfo(List_child L) {
 }
 
 
-address_child findElm(List_child L, infotype_child x) {
-    address_child P = first(L);
+address_matkul findElm(List_matkul L, infotype_matkul x) {
+    address_matkul P = first(L);
     while(P != NULL) {
         if(info(P)==x) {
             return P;
@@ -44,7 +44,7 @@ address_child findElm(List_child L, infotype_child x) {
     return NULL;
 }
 
-void insertAfter(address_child &Prec, address_child P) {
+void insertAfter(address_matkul &Prec, address_matkul P) {
     prev(next(Prec)) = P;
     next(P) = next(Prec);
     prev(P) = Prec;

@@ -4,10 +4,10 @@ void createList(List_relasi &L) {
     first(L) = NULL;
 }
 
-address_relasi alokasi(address_parent P, address_child C) {
+address_relasi alokasi(address_mahasiswa P, address_matkul C) {
     address_relasi Q = new elmlist_relasi;
-    child(Q) = C;
-    parent(Q) = P;
+    matkul(Q) = C;
+    mahasiswa(Q) = P;
     next(Q) = NULL;
     return Q;
 }
@@ -20,16 +20,16 @@ void insertFirst(List_relasi &L, address_relasi P) {
 void printInfo(List_relasi L) {
     address_relasi P = first(L);
     while(P !=NULL) {
-        cout<<info(parent(P))<<"->"<<info(child(P))<<endl;
+        cout<<info(mahasiswa(P))<<"->"<<info(matkul(P))<<endl;
         P = next(P);
     }
 }
 
 
-address_relasi findElm(List_relasi L, address_parent P, address_child C) {
+address_relasi findElm(List_relasi L, address_mahasiswa P, address_matkul C) {
     address_relasi Q = first(L);
     while(Q != NULL) {
-        if(parent(Q)==P && child(Q)== C) {
+        if(mahasiswa(Q)==P && matkul(Q)== C) {
             return Q;
         }
         Q = next(Q);

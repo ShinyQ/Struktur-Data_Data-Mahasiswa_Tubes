@@ -9,18 +9,18 @@ int main()
 {
     cout << "Bentuk III - Contoh Relasi M-N" << endl;
 
-    List_parent LP;
-    List_child LC;
+    List_mahasiswa LP;
+    List_matkul LC;
     List_relasi LR;
-    address_child C;
-    address_parent P;
+    address_matkul C;
+    address_mahasiswa P;
     address_relasi R;
 
     createList(LP);
     createList(LC);
     createList(LR);
 
-    /** insert parent */
+    /** insert mahasiswa */
     P = alokasi(3);
     insertFirst(LP, P);
     P = alokasi(7);
@@ -30,10 +30,10 @@ int main()
     P = alokasi(4);
     insertFirst(LP, P);
 
-    cout<<"list parent"<<endl;
+    cout<<"list mahasiswa"<<endl;
     printInfo(LP);
 
-    /** insert child */
+    /** insert matkul */
     C = alokasi("A");
     insertFirst(LC, C);
     C = alokasi("D");
@@ -43,10 +43,10 @@ int main()
     C = alokasi("O");
     insertFirst(LC, C);
 
-    cout<<"list child"<<endl;
+    cout<<"list matkul"<<endl;
     printInfo(LC);
 
-    /** RELASIKAN PARENT DENGAN CHILD **/
+    /** RELASIKAN mahasiswa DENGAN matkul **/
     P = findElm(LP, 4);
     C = findElm(LC, "E");
     R = alokasi(P,C);
@@ -68,25 +68,25 @@ int main()
     insertFirst(LR,R );
 
     cout<<endl<<"Setelah Direlasikan"<<endl;
-    cout<<"list parent"<<endl;
+    cout<<"list mahasiswa"<<endl;
     printInfo(LP);
 
-    cout<<endl<<"list child"<<endl;
+    cout<<endl<<"list matkul"<<endl;
     printInfo(LC);
 
     cout<<endl<<"list relasi"<<endl;
     printInfo(LR);
 
 
-    /** KELEBIHAN DARI BENTUK III: jika salah satu child diedit **/
+    /** KELEBIHAN DARI BENTUK III: jika salah satu matkul diedit **/
     C = findElm(LC, "E");
     info(C) = "X";
 
-    cout<<endl<<"Setelah Child Diedit"<<endl;
-    cout<<"list parent"<<endl;
+    cout<<endl<<"Setelah matkul Diedit"<<endl;
+    cout<<"list mahasiswa"<<endl;
     printInfo(LP);
 
-    cout<<endl<<"list child"<<endl;
+    cout<<endl<<"list matkul"<<endl;
     printInfo(LC);
 
     cout<<endl<<"list relasi"<<endl;
