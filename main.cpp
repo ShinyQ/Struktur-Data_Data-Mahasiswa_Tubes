@@ -1,8 +1,8 @@
 #include <iostream>
 
 using namespace std;
-#include "list_child.h"
-#include "list_parent.h"
+#include "list_matkul.h"
+#include "list_mahasiswa.h"
 #include "list_relasi.h"
 
 int main()

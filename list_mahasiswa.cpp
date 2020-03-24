@@ -1,4 +1,4 @@
-#include "list_parent.h"
+#include "list_mahasiswa.h"
 
 void createList(List_parent &L) {
     /**

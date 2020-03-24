@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Multi_III" />
+		<Option title="Mahasiswa" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -32,10 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="list_child.cpp" />
-		<Unit filename="list_child.h" />
-		<Unit filename="list_parent.cpp" />
-		<Unit filename="list_parent.h" />
+		<Unit filename="list_mahasiswa.cpp" />
+		<Unit filename="list_mahasiswa.h" />
+		<Unit filename="list_matkul.cpp" />
+		<Unit filename="list_matkul.h" />
 		<Unit filename="list_relasi.cpp" />
 		<Unit filename="list_relasi.h" />
 		<Unit filename="main.cpp" />

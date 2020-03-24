@@ -1,6 +1,5 @@
-#ifndef LIST_CHILD_H_INCLUDED
-#define LIST_CHILD_H_INCLUDED
-
+#ifndef LIST_MATKUL_H_INCLUDED
+#define LIST_MATKUL_H_INCLUDED
 
 #include <iostream>
 using namespace std;
@@ -41,5 +40,4 @@ void dealokasi(address_child &P);
 address_child findElm(List_child L, infotype_child x);
 void printInfo(List_child L);
 
-
-#endif // LIST_CHILD_H_INCLUDED
+#endif

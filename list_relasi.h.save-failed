@@ -1,3 +1,4 @@
+#include "list_relasi.h"
 #include "list_matkul.h"
 #include "list_mahasiswa.h"
 
