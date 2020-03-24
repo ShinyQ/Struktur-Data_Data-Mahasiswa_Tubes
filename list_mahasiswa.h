@@ -8,33 +8,33 @@ using namespace std;
 #define next(P) P->next
 #define info(P) P->info
 
-typedef int infotype_parent;
-typedef struct elmlist_parent *address_parent;
+typedef int infotype_mahasiswa;
+typedef struct elmlist_mahasiswa *address_mahasiswa;
 
-struct elmlist_parent {
-    infotype_parent info;
-    address_parent next;
+struct elmlist_mahasiswa {
+    infotype_mahasiswa info;
+    address_mahasiswa next;
 };
 
-struct List_parent {
-    address_parent first;
+struct List_mahasiswa {
+    address_mahasiswa first;
 };
 
 
 /** TIDAK PERLU MODIFIKASI */
-void createList(List_parent &L);
-void insertFirst(List_parent &L, address_parent P);
-void insertAfter(List_parent &L, address_parent Prec, address_parent P);
-void insertLast(List_parent &L, address_parent P);
-void deleteFirst(List_parent &L, address_parent &P);
-void deleteLast(List_parent &L, address_parent &P);
-void deleteAfter(List_parent &L, address_parent Prec, address_parent &P);
+void createList(List_mahasiswa &L);
+void insertFirst(List_mahasiswa &L, address_mahasiswa P);
+void insertAfter(List_mahasiswa &L, address_mahasiswa Prec, address_mahasiswa P);
+void insertLast(List_mahasiswa &L, address_mahasiswa P);
+void deleteFirst(List_mahasiswa &L, address_mahasiswa &P);
+void deleteLast(List_mahasiswa &L, address_mahasiswa &P);
+void deleteAfter(List_mahasiswa &L, address_mahasiswa Prec, address_mahasiswa &P);
 
 
 /** PERLU MODIFIKASI */
-address_parent alokasi(infotype_parent x);
-void dealokasi(address_parent &P);
-address_parent findElm(List_parent L, infotype_parent x);
-void printInfo(List_parent L);
+address_mahasiswa alokasi(infotype_mahasiswa x);
+void dealokasi(address_mahasiswa &P);
+address_mahasiswa findElm(List_mahasiswa L, infotype_mahasiswa x);
+void printInfo(List_mahasiswa L);
 
 #endif
