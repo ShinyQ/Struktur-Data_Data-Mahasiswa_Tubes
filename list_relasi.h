@@ -8,13 +8,16 @@ using namespace std;
 #define first(L) L.first
 #define matkul(P) P->matkul
 #define mahasiswa(P) P->mahasiswa
+#define info(P) P->info
 
 typedef struct elmlist_relasi *address_relasi;
+typedef string infotype_relasi;
 
 struct elmlist_relasi{
     address_relasi next;
     address_matkul matkul;
     address_mahasiswa mahasiswa;
+    infotype_relasi info;
 };
 
 struct List_relasi{
@@ -32,8 +35,8 @@ void deleteAfter(address_relasi Prec, address_relasi &P);
 
 
 /** PERLU MODIFIKASI */
-address_relasi alokasi( address_mahasiswa P, address_matkul C);
+address_relasi alokasi(address_mahasiswa P, address_matkul C, string status);
 void dealokasi(address_relasi &P);
 address_relasi findElm(List_relasi L, address_mahasiswa P, address_matkul C);
-void printInfo(List_relasi L);
+void printInfo(List_relasi L, List_mahasiswa M);
 

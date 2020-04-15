@@ -8,7 +8,12 @@ using namespace std;
 #define next(P) P->next
 #define info(P) P->info
 
-typedef int infotype_mahasiswa;
+struct mahasiswa{
+    string nama;
+    string nim;
+};
+
+typedef mahasiswa infotype_mahasiswa;
 typedef struct elmlist_mahasiswa *address_mahasiswa;
 
 struct elmlist_mahasiswa {
@@ -32,9 +37,9 @@ void deleteAfter(List_mahasiswa &L, address_mahasiswa Prec, address_mahasiswa &P
 
 
 /** PERLU MODIFIKASI */
-address_mahasiswa alokasi(infotype_mahasiswa x);
+address_mahasiswa alokasi_mahasiswa(string nama, string nim);
 void dealokasi(address_mahasiswa &P);
-address_mahasiswa findElm(List_mahasiswa L, infotype_mahasiswa x);
+address_mahasiswa findElmMahasiswa(List_mahasiswa L, string x);
 void printInfo(List_mahasiswa L);
 
 #endif

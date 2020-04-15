@@ -5,7 +5,7 @@ void createList(List_matkul &L) {
     last(L) = NULL;
 }
 
-address_matkul alokasi(infotype_matkul x) {
+address_matkul alokasi_matkul(infotype_matkul x) {
     address_matkul P = new elmlist_matkul;
     info(P) = x;
     next(P) = NULL;
@@ -25,18 +25,25 @@ void insertFirst(List_matkul &L, address_matkul P) {
 }
 
 void printInfo(List_matkul L) {
+    cout << endl << "Berikut Merupakan List Matkul : " << endl;
+    int no = 1;
     address_matkul P = first(L);
-    while(P !=NULL) {
-        cout<<"->"<<info(P)<<endl;
-        P = next(P);
+    if(P != NULL){
+        while(P !=NULL) {
+            cout<< no << ". " << info(P) <<endl;
+            P = next(P);
+            no++;
+        }
+    } else {
+        cout << "List Matkul Kosong" << endl;
     }
 }
 
 
-address_matkul findElm(List_matkul L, infotype_matkul x) {
+address_matkul findElmMatkul(List_matkul L, infotype_matkul x) {
     address_matkul P = first(L);
     while(P != NULL) {
-        if(info(P)==x) {
+        if(info(P) == x) {
             return P;
         }
         P = next(P);
