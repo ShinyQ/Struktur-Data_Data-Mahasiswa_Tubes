@@ -4,6 +4,10 @@ void createList(List_mahasiswa &L) {
     first(L) = NULL;
 }
 
+void dealokasi(address_mahasiswa P){
+    delete P;
+}
+
 address_mahasiswa alokasi_mahasiswa(string nama, string nim) {
     address_mahasiswa P;
     P = new elmlist_mahasiswa;
