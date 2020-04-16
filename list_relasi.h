@@ -32,7 +32,8 @@ void insertAfter(address_relasi Prec, address_relasi P);
 void deleteFirst(List_relasi &L, address_relasi &P);
 void deleteLast(List_relasi &L, address_relasi &P);
 void deleteAfter(address_relasi Prec, address_relasi &P);
-
+void printTidakLulus(List_relasi L, List_matkul M);
+void printMatkulBanyakDipilih(List_relasi L, List_matkul M);
 
 /** PERLU MODIFIKASI */
 address_relasi alokasi(address_mahasiswa P, address_matkul C, string status);

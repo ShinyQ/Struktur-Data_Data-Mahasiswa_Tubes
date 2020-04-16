@@ -29,7 +29,6 @@ void insertFirst(List_mahasiswa &L, address_mahasiswa P) {
     }
 }
 
-
 void printInfo(List_mahasiswa L) {
     cout << endl << "Berikut Merupakan List Mahasiswa : " << endl;
     int i = 1;
