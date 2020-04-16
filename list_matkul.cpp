@@ -40,7 +40,7 @@ void printInfo(List_matkul L) {
 }
 
 
-address_matkul findElmMatkul(List_matkul L, infotype_matkul x) {
+address_matkul findElmMatkul(List_matkul L, string x) {
     address_matkul P = first(L);
     while(P != NULL) {
         if(info(P) == x) {

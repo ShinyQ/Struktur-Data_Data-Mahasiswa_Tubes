@@ -87,15 +87,6 @@ void tambah_relasi(){
         P = findElmMahasiswa(LP, nama_mahasiswa);
         C = findElmMatkul(LC, nama_matkul);
 
-        if(P == NULL){
-            cout << "Mahasiswa Tersebut Tidak Ditemukan";
-        } else if (C == NULL){
-            cout << "Mata Kuliah Tersebut Tidak Ditemukan";
-        } else {
-            R = alokasi(P,C, status);
-            insertFirst(LR,R);
-        }
-
         cout << endl << "Input Lagi (Y/N) ? ";
         cin >> input;
     }
@@ -110,6 +101,7 @@ int main()
         createList(LR);
         used = true;
 
+        // Data Dummy
         P = alokasi_mahasiswa("Kurniadi", "1301194024");
         insertFirst(LP, P);
 
@@ -121,6 +113,21 @@ int main()
 
         C = alokasi_matkul("Kalkulus IIB");
         insertFirst(LC, C);
+
+        P = findElmMahasiswa(LP, "Iqbal");
+        C = findElmMatkul(LC, "Struktur Data");
+        R = alokasi(P,C, "Tidak Lulus");
+        insertFirst(LR,R);
+
+        P = findElmMahasiswa(LP, "Kurniadi");
+        C = findElmMatkul(LC, "Kalkulus IIB");
+        R = alokasi(P,C, "Lulus");
+        insertFirst(LR,R);
+
+        P = findElmMahasiswa(LP, "Iqbal");
+        C = findElmMatkul(LC, "Kalkulus IIB");
+        R = alokasi(P,C, "Lulus");
+        insertFirst(LR,R);
     }
 
     menu();
@@ -139,6 +146,10 @@ int main()
         tambah_matkul();
     } else if(pilih_menu == 6){
         tambah_relasi();
+    } else if(pilih_menu == 9){
+        printTidakLulus(LR, LC);
+    } else if(pilih_menu == 10){
+        printMatkulBanyakDipilih(LR, LC);
     } else {
         exit(EXIT_FAILURE);
     }
