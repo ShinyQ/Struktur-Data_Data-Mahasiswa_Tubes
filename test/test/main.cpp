@@ -62,20 +62,20 @@ void hapus_mahasiswa(){
         cout << "Nama Mahasiswa :";
         getline(cin, nama);
         
-
+        
         address_mahasiswa Q,rH;             // rH = recently di Hapus
         Q = findElmMahasiswa(LP,nama);
-
+        
         if(Q != NULL){
             
             if(Q == first(LP)){
                 
                 deleteFirst(LP, rH);
- 
+                
             }else if(next(Q) == NULL){
                 
                 deleteLast(LP, rH);
-
+                
             }else{
                 address_mahasiswa befQ;
                 befQ = first(LP);
@@ -88,11 +88,11 @@ void hapus_mahasiswa(){
             
             cout << info(rH).nama <<" Telah dihapus dari list." << endl;
             dealokasi(rH);
-
+            
         }else{
-        cout << "Nama yang dimasukkan tidak ada di list.";
-        cout << endl << "Input Lagi (Y/N) ? ";
-        cin >> input;
+            cout << "Nama yang dimasukkan tidak ada di list.";
+            cout << endl << "Input Lagi (Y/N) ? ";
+            cin >> input;
         }
         
     }
