@@ -44,57 +44,6 @@ void tambah_mahasiswa(){
 
         P = alokasi_mahasiswa(nama, nim);
         insertFirst(LP, P);
-
-<<<<<<< HEAD:test/test/main.cpp
-void hapus_mahasiswa(){
-    
-    string nama, input;
-    input = "y";
-    while(input == "Y" || input == "y"){
-        
-        cout << endl << "Silahkan Memasukkan Nama Mahasiswa Yang Ingin Dihapus :" << endl;
-        getline(cin, input);
-        
-        cout << "Nama Mahasiswa :";
-        getline(cin, nama);
-        
-        
-        address_mahasiswa Q,rH;             // rH = recently di Hapus
-        Q = findElmMahasiswa(LP,nama);
-        
-        if(Q != NULL){
-            
-            if(Q == first(LP)){
-                
-                deleteFirst(LP, rH);
-                
-            }else if(next(Q) == NULL){
-                
-                deleteLast(LP, rH);
-                
-            }else{
-                address_mahasiswa befQ;
-                befQ = first(LP);
-                
-                while(next(befQ) != Q){
-                    befQ = next(befQ);
-                }
-                deleteAfter(LP, befQ, rH);
-            }
-            
-            cout << info(rH).nama <<" Telah dihapus dari list." << endl;
-            dealokasi(rH);
-            
-        }else{
-            cout << "Nama yang dimasukkan tidak ada di list.";
-            cout << endl << "Input Lagi (Y/N) ? ";
-            cin >> input;
-        }
-        
-=======
-        cout << endl << "Input Lagi (Y/N) ? ";
-        cin >> input;
->>>>>>> b4979678569262300213792c917962353140272f:main.cpp
     }
 }
 
