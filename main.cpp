@@ -44,9 +44,6 @@ void tambah_mahasiswa(){
 
         P = alokasi_mahasiswa(nama, nim);
         insertFirst(LP, P);
-
-        cout << endl << "Input Lagi (Y/N) ? ";
-        cin >> input;
     }
 }
 
@@ -89,6 +86,78 @@ void tambah_relasi(){
 
         cout << endl << "Input Lagi (Y/N) ? ";
         cin >> input;
+    }
+}
+
+void hapus_mahasiswa(){
+    string nama, input;
+    input = "y";
+    while(input == "Y" || input == "y"){
+
+        cout << endl << "Silahkan Memasukkan Nama Mahasiswa Yang Ingin Dihapus :" << endl;
+        getline(cin, input);
+
+        cout << "Nama Mahasiswa : ";
+        getline(cin, nama);
+
+        address_mahasiswa Q,rH;
+        Q = findElmMahasiswa(LP,nama);
+
+        if(Q != NULL){
+            if(Q == first(LP)){
+                deleteFirst(LP, rH);
+            }else if(next(Q) == NULL){
+                deleteLast(LP, rH);
+            }else{
+                address_mahasiswa befQ;
+                befQ = first(LP);
+
+                while(next(befQ) != Q){
+                    befQ = next(befQ);
+                }
+                deleteAfter(LP, befQ, rH);
+            }
+            cout << info(rH).nama <<" Telah dihapus dari list." << endl;
+            dealokasi(rH);
+
+        } else{
+        cout << "Nama yang dimasukkan tidak ada di list.";
+        cout << endl << "Input Lagi (Y/N) ? ";
+        cin >> input;
+        }
+
+    }
+}
+
+void hapus_matkul(){
+    string nama, input;
+    input = "y";
+    while(input == "Y" || input == "y"){
+
+        cout << endl << "Silahkan Memasukkan Nama Mata Kuliah Yang Ingin Dihapus :" << endl;
+        getline(cin, input);
+
+        cout << "Nama Mata Kuliah : ";
+        getline(cin, nama);
+
+        address_matkul Q, rH;
+        Q = findElmMatkul(LC, nama);
+
+        if(Q != NULL){
+            if(Q == first(LC)){
+                deleteFirst(LC, rH);
+            }else if(Q == last(LC)){
+                deleteLast(LC, rH);
+            }else{
+                deleteAfter(LC, prev(Q), rH);
+            }
+            cout << info(rH) <<" Telah dihapus dari list." << endl;
+            dealokasi(rH);
+        }else{
+            cout << "Nama yang dimasukkan tidak ada di list.";
+            cout << endl << "Input Lagi (Y/N) ? ";
+            cin >> input;
+        }
     }
 }
 
@@ -146,6 +215,10 @@ int main()
         tambah_matkul();
     } else if(pilih_menu == 6){
         tambah_relasi();
+    } else if(pilih_menu == 7){
+        hapus_mahasiswa();
+    } else if(pilih_menu == 8){
+        hapus_matkul();
     } else if(pilih_menu == 9){
         printTidakLulus(LR, LC);
     } else if(pilih_menu == 10){
@@ -155,19 +228,5 @@ int main()
     }
     main();
 
-//
-//    /** KELEBIHAN DARI BENTUK III: jika salah satu matkul diedit **/
-//    C = findElm(LC, "Struktur Data");
-//    info(C) = "Data Structure";
-//
-//    cout<<endl<<"Setelah matkul Diedit"<<endl;
-//    cout<<"list mahasiswa"<<endl;
-//    printInfo(LP);
-//
-//    cout<<endl<<"list matkul"<<endl;
-//    printInfo(LC);
-//
-//    cout<<endl<<"list relasi"<<endl;
-//    printInfo(LR);
     return 0;
 }
