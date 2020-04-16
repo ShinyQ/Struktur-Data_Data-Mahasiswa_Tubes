@@ -12,11 +12,6 @@ address_matkul alokasi_matkul(infotype_matkul x) {
     prev(P) = NULL;
     return P;
 }
-void dealokasi(address_matkul P){
-    
-    delete P;
-    
-}
 
 void insertFirst(List_matkul &L, address_matkul P) {
     if(first(L) == NULL) {
@@ -45,7 +40,7 @@ void printInfo(List_matkul L) {
 }
 
 
-address_matkul findElmMatkul(List_matkul L, infotype_matkul x) {
+address_matkul findElmMatkul(List_matkul L, string x) {
     address_matkul P = first(L);
     while(P != NULL) {
         if(info(P) == x) {
@@ -62,66 +57,3 @@ void insertAfter(address_matkul &Prec, address_matkul P) {
     prev(P) = Prec;
     next(Prec) = P;
 }
-
-void deleteFirst(List_matkul &L, address_matkul &P){
-    
-    if(first(L) == NULL){
-        
-        cout << "List udah kosong" << endl;
-        
-    }else if(first(L) == last(L)){
-        
-        P = first(L);
-        first(L) = NULL;
-        last(L) = NULL;
-        
-    }else{
-        
-        P = first(L);
-        first(L) = next(P);
-        prev(first(L)) = NULL;
-        next(P) = NULL;
-        
-    }
-    
-}
-void deleteLast(List_matkul &L, address_matkul &P){
-    
-    if(first(L) == NULL){
-        
-        cout << "List udah kosong" << endl;
-        
-    }else if(first(L) == last(L)){
-        
-        P = first(L);
-        first(L) = NULL;
-        last(L) = NULL;
-        
-    }else{
-        
-        P = last(L);
-        last(L) = prev(P);
-        next(last(L)) = NULL;
-        prev(P) = NULL;
-    
-    }
-        
-}
-void deleteAfter(List_matkul &L, address_matkul Prec, address_matkul &P){
-    
-    if(first(L) == NULL){
-        
-        cout << "List udah kosong" << endl;
-        
-    }else if(findElmMatkul(L, info(Prec)) ){
-        
-        P = next(Prec);
-        next(Prec) = next(P);
-        prev(next(P)) = Prec;
-        next(P) = NULL;
-        prev(P) = NULL;
-        
-    }
-    
-}
-
