@@ -25,7 +25,7 @@ void menu(){
     cout << "= 3. Tampil Relasi Mahasiswa Dan Matkul   |  9. Tampil Mahasiswa Tidak Lulus Matkul    =" << endl;
     cout << "= 4. Tambah Mahasiswa                     |  10. Tampil Matkul Paling Banyak Dipilih   =" << endl;
     cout << "= 5. Tambah Matkul                        |  11. Cari Mahasiswa Berdasarkan NIM        =" << endl;
-    cout << "= 6. Tambah Relasi Mahasiswa Dan Matkul   |  12. Cari Matkul                           =" << endl;
+    cout << "= 6. Tambah Relasi Mahasiswa Dan Matkul   |  12. Tampil Presentase Kelulusan Matkul    =" << endl;
     cout << "========================================================================================" << endl;
 }
 
@@ -74,15 +74,31 @@ void tambah_relasi(){
 
         cout << "Nama Mahasiswa : ";
         getline(cin, nama_mahasiswa);
-
-        cout << "Nama Mata Kuliah : ";
-        getline(cin, nama_matkul);
-
-        cout << "Masukkan Status Kelulusan : ";
-        getline(cin, status);
-
         P = findElmMahasiswa(LP, nama_mahasiswa);
-        C = findElmMatkul(LC, nama_matkul);
+        if(P == NULL){
+            cout << "Mahasiswa Tersebut Tidak Ditemukan" << endl;
+        } else {
+            cout << "Nama Mata Kuliah : ";
+            getline(cin, nama_matkul);
+            C = findElmMatkul(LC, nama_matkul);
+            if (C == NULL){
+            cout << "Mata Kuliah Tersebut Tidak Ditemukan" << endl;
+            } else {
+                cout << "Masukkan Status Kelulusan (Lulus / Tidak Lulus) : ";
+                getline(cin, status);
+                if(status == "Lulus" || status == "lulus"){
+                    status = "Lulus";
+                    R = alokasi(P,C, status);
+                    insertFirst(LR,R);
+                } else if (status == "Tidak Lulus" || status == "tidak lulus"){
+                    status = "Tidak Lulus";
+                    R = alokasi(P,C, status);
+                    insertFirst(LR,R);
+                } else {
+                    cout << "Input Status Tidak Valid" << endl;
+                }
+            }
+        }
 
         cout << endl << "Input Lagi (Y/N) ? ";
         cin >> input;
@@ -161,6 +177,20 @@ void hapus_matkul(){
     }
 }
 
+void cariMahasiswaByNIM(){
+    string nim, input;
+    input = "y";
+    while(input == "Y" || input == "y"){
+        cout << endl << "Masukkan NIM Mahasiswa : ";
+        cin >> nim;
+
+        findMahasiswaByNIM(LR, LP, nim);
+
+        cout << endl << endl << "Input Lagi (Y/N) ? ";
+        cin >> input;
+    }
+}
+
 int main()
 {
     int pilih_menu;
@@ -223,6 +253,8 @@ int main()
         printTidakLulus(LR, LC);
     } else if(pilih_menu == 10){
         printMatkulBanyakDipilih(LR, LC);
+    } else if(pilih_menu == 11){
+        cariMahasiswaByNIM();
     } else {
         exit(EXIT_FAILURE);
     }

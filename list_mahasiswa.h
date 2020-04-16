@@ -40,6 +40,7 @@ void deleteAfter(List_mahasiswa &L, address_mahasiswa Prec, address_mahasiswa &P
 address_mahasiswa alokasi_mahasiswa(string nama, string nim);
 void dealokasi(address_mahasiswa P);
 address_mahasiswa findElmMahasiswa(List_mahasiswa L, string x);
+address_mahasiswa findElmMahasiswaByNIM(List_mahasiswa L, string nim);
 void printInfo(List_mahasiswa L);
 
 #endif

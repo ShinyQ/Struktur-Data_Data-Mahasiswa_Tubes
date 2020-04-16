@@ -48,13 +48,25 @@ void printInfo(List_mahasiswa L) {
     }
 }
 
-address_mahasiswa findElmMahasiswa(List_mahasiswa L, string x) {
+address_mahasiswa findElmMahasiswa(List_mahasiswa L, string nama) {
     address_mahasiswa P = first(L);
     do {
-        if(info(P).nama == x) {
+        if(info(P).nama == nama) {
             return P;
         }
         P = next(P);
     } while(P != first(L));
     return NULL;
 }
+
+address_mahasiswa findElmMahasiswaByNIM(List_mahasiswa L, string nim) {
+    address_mahasiswa P = first(L);
+    do {
+        if(info(P).nim == nim) {
+            return P;
+        }
+        P = next(P);
+    } while(P != first(L));
+    return NULL;
+}
+
