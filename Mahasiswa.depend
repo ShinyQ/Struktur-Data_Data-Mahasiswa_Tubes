@@ -63,15 +63,15 @@
 1578702463 c:\users\shinyq\desktop\tubes std\list_parent.h
 	<iostream>
 
-1587049117 source:c:\users\shinyq\desktop\tubes std\list_relasi.cpp
+1587056458 source:c:\users\shinyq\desktop\tubes std\list_relasi.cpp
 	"list_relasi.h"
 
-1586967650 c:\users\shinyq\desktop\tubes std\list_relasi.h
+1587056376 c:\users\shinyq\desktop\tubes std\list_relasi.h
 	"list_matkul.h"
 	"list_mahasiswa.h"
 	<iostream>
 
-1587049847 source:c:\users\shinyq\desktop\tubes std\main.cpp
+1587056525 source:c:\users\shinyq\desktop\tubes std\main.cpp
 	<iostream>
 	<stdlib.h>
 	<string>
@@ -82,10 +82,10 @@
 1587049557 c:\users\shinyq\desktop\tubes std\list_matkul.h
 	<iostream>
 
-1587049566 c:\users\shinyq\desktop\tubes std\list_mahasiswa.h
+1587055509 c:\users\shinyq\desktop\tubes std\list_mahasiswa.h
 	<iostream>
 
-1587049502 source:c:\users\shinyq\desktop\tubes std\list_mahasiswa.cpp
+1587055492 source:c:\users\shinyq\desktop\tubes std\list_mahasiswa.cpp
 	"list_mahasiswa.h"
 
 1587049534 source:c:\users\shinyq\desktop\tubes std\list_matkul.cpp
