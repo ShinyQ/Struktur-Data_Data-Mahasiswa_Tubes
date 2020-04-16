@@ -31,12 +31,12 @@ void insertLast(List_matkul &L, address_matkul P);
 void insertAfter(address_matkul Prec, address_matkul P);
 void deleteFirst(List_matkul &L, address_matkul &P);
 void deleteLast(List_matkul &L, address_matkul &P);
-void deleteAfter(List_matkul &L, address_matkul Prec, address_matkul &P);
+void deleteAfter(address_matkul Prec, address_matkul &P);
 
 
 /** PERLU MODIFIKASI */
 address_matkul alokasi_matkul(infotype_matkul x);
-void dealokasi(address_matkul P);
+void dealokasi(address_matkul &P);
 address_matkul findElmMatkul(List_matkul L, string x);
 void printInfo(List_matkul L);
 

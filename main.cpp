@@ -35,68 +35,19 @@ void tambah_mahasiswa(){
     while(input == "Y" || input == "y"){
         cout << endl << "Silahkan Memasukkan Data Mahasiswa :" << endl;
         getline(cin, input);
-        
+
         cout << "Nama Mahasiswa : ";
         getline(cin, nama);
-        
+
         cout << "NIM : ";
         getline(cin, nim);
-        
+
         P = alokasi_mahasiswa(nama, nim);
         insertFirst(LP, P);
-        
+
         cout << endl << "Input Lagi (Y/N) ? ";
         cin >> input;
     }
-}
-
-void hapus_mahasiswa(){
-    
-    string nama, input;
-    input = "y";
-    while(input == "Y" || input == "y"){
-        
-        cout << endl << "Silahkan Memasukkan Nama Mahasiswa Yang Ingin Dihapus :" << endl;
-        getline(cin, input);
-        
-        cout << "Nama Mahasiswa :";
-        getline(cin, nama);
-        
-
-        address_mahasiswa Q,rH;             // rH = recently di Hapus
-        Q = findElmMahasiswa(LP,nama);
-
-        if(Q != NULL){
-            
-            if(Q == first(LP)){
-                
-                deleteFirst(LP, rH);
- 
-            }else if(next(Q) == NULL){
-                
-                deleteLast(LP, rH);
-
-            }else{
-                address_mahasiswa befQ;
-                befQ = first(LP);
-                
-                while(next(befQ) != Q){
-                    befQ = next(befQ);
-                }
-                deleteAfter(LP, befQ, rH);
-            }
-            
-            cout << info(rH).nama <<" Telah dihapus dari list." << endl;
-            dealokasi(rH);
-
-        }else{
-        cout << "Nama yang dimasukkan tidak ada di list.";
-        cout << endl << "Input Lagi (Y/N) ? ";
-        cin >> input;
-        }
-        
-    }
-    
 }
 
 void tambah_matkul(){
@@ -105,61 +56,16 @@ void tambah_matkul(){
     while(input == "Y" || input == "y"){
         cout << endl << "Silahkan Memasukkan Data Mata Kuliah :" << endl;
         getline(cin, input);
-        
+
         cout << "Nama Mata Kuliah : ";
         getline(cin, nama);
-        
+
         C = alokasi_matkul(nama);
         insertFirst(LC, C);
-        
+
         cout << endl << "Input Lagi (Y/N) ? ";
         cin >> input;
     }
-}
-
-void hapus_matkul(){
-    
-    string nama, input;
-    input = "y";
-    while(input == "Y" || input == "y"){
-        
-        cout << endl << "Silahkan Memasukkan Nama Mata Kuliah Yang Ingin Dihapus :" << endl;
-        getline(cin, input);
-        
-        cout << "Nama Mata Kuliah :";
-        getline(cin, nama);
-        
-        
-        address_matkul Q, rH;             // rH = recently di Hapus
-        Q = findElmMatkul(LC, nama);
-        
-        if(Q != NULL){
-            
-            if(Q == first(LC)){
-                
-                deleteFirst(LC, rH);
-                
-            }else if(Q == last(LC)){
-                
-                deleteLast(LC, rH);
-                
-            }else{
-                
-                deleteAfter(LC, prev(Q), rH);
-            }
-            
-            cout << info(rH) <<" Telah dihapus dari list." << endl;
-            dealokasi(rH);
-            
-        }else{
-            cout << "Nama yang dimasukkan tidak ada di list.";
-            cout << endl << "Input Lagi (Y/N) ? ";
-            cin >> input;
-        }
-        
-    }
-    
-    
 }
 
 void tambah_relasi(){
@@ -168,28 +74,19 @@ void tambah_relasi(){
     while(input == "Y" || input == "y"){
         cout << endl << "Silahkan Memasukkan Data Mata Kuliah :" << endl;
         getline(cin, input);
-        
+
         cout << "Nama Mahasiswa : ";
         getline(cin, nama_mahasiswa);
-        
+
         cout << "Nama Mata Kuliah : ";
         getline(cin, nama_matkul);
-        
+
         cout << "Masukkan Status Kelulusan : ";
         getline(cin, status);
-        
+
         P = findElmMahasiswa(LP, nama_mahasiswa);
         C = findElmMatkul(LC, nama_matkul);
-        
-        if(P == NULL){
-            cout << "Mahasiswa Tersebut Tidak Ditemukan";
-        } else if (C == NULL){
-            cout << "Mata Kuliah Tersebut Tidak Ditemukan";
-        } else {
-            R = alokasi(P,C, status);
-            insertFirst(LR,R);
-        }
-        
+
         cout << endl << "Input Lagi (Y/N) ? ";
         cin >> input;
     }
@@ -203,42 +100,40 @@ int main()
         createList(LC);
         createList(LR);
         used = true;
-        
+
+        // Data Dummy
         P = alokasi_mahasiswa("Kurniadi", "1301194024");
         insertFirst(LP, P);
-        
-        P = alokasi_mahasiswa("Iqbal", "1301190318");
+
+        P = alokasi_mahasiswa("Iqbal", "1301194***");
         insertFirst(LP, P);
-        
-        P = alokasi_mahasiswa("Aulia", "1301192132");
-        insertFirst(LP, P);
-        
+
         C = alokasi_matkul("Struktur Data");
         insertFirst(LC, C);
-        
+
         C = alokasi_matkul("Kalkulus IIB");
         insertFirst(LC, C);
-        
-        P = findElmMahasiswa(LP, "Kurniadi");
+
+        P = findElmMahasiswa(LP, "Iqbal");
         C = findElmMatkul(LC, "Struktur Data");
         R = alokasi(P,C, "Tidak Lulus");
         insertFirst(LR,R);
-        
+
         P = findElmMahasiswa(LP, "Kurniadi");
         C = findElmMatkul(LC, "Kalkulus IIB");
         R = alokasi(P,C, "Lulus");
         insertFirst(LR,R);
-        
+
         P = findElmMahasiswa(LP, "Iqbal");
         C = findElmMatkul(LC, "Kalkulus IIB");
         R = alokasi(P,C, "Lulus");
         insertFirst(LR,R);
     }
-    
+
     menu();
     cout << endl << "Silahkan Memilih Menu : ";
     cin >> pilih_menu;
-    
+
     if(pilih_menu == 1){
         printInfo(LP);
     } else if(pilih_menu == 2){
@@ -251,28 +146,28 @@ int main()
         tambah_matkul();
     } else if(pilih_menu == 6){
         tambah_relasi();
-    } else if(pilih_menu == 7){
-        hapus_mahasiswa();
-    }else if(pilih_menu == 8){
-        hapus_matkul();
-    }else {
+    } else if(pilih_menu == 9){
+        printTidakLulus(LR, LC);
+    } else if(pilih_menu == 10){
+        printMatkulBanyakDipilih(LR, LC);
+    } else {
         exit(EXIT_FAILURE);
     }
     main();
-    
-    //
-    //    /** KELEBIHAN DARI BENTUK III: jika salah satu matkul diedit **/
-    //    C = findElm(LC, "Struktur Data");
-    //    info(C) = "Data Structure";
-    //
-    //    cout<<endl<<"Setelah matkul Diedit"<<endl;
-    //    cout<<"list mahasiswa"<<endl;
-    //    printInfo(LP);
-    //
-    //    cout<<endl<<"list matkul"<<endl;
-    //    printInfo(LC);
-    //
-    //    cout<<endl<<"list relasi"<<endl;
-    //    printInfo(LR);
+
+//
+//    /** KELEBIHAN DARI BENTUK III: jika salah satu matkul diedit **/
+//    C = findElm(LC, "Struktur Data");
+//    info(C) = "Data Structure";
+//
+//    cout<<endl<<"Setelah matkul Diedit"<<endl;
+//    cout<<"list mahasiswa"<<endl;
+//    printInfo(LP);
+//
+//    cout<<endl<<"list matkul"<<endl;
+//    printInfo(LC);
+//
+//    cout<<endl<<"list relasi"<<endl;
+//    printInfo(LR);
     return 0;
 }
