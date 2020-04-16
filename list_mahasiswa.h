@@ -38,7 +38,7 @@ void deleteAfter(List_mahasiswa &L, address_mahasiswa Prec, address_mahasiswa &P
 
 /** PERLU MODIFIKASI */
 address_mahasiswa alokasi_mahasiswa(string nama, string nim);
-void dealokasi(address_mahasiswa &P);
+void dealokasi(address_mahasiswa P);
 address_mahasiswa findElmMahasiswa(List_mahasiswa L, string x);
 void printInfo(List_mahasiswa L);
 

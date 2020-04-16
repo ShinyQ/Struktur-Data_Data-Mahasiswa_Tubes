@@ -13,6 +13,12 @@ address_mahasiswa alokasi_mahasiswa(string nama, string nim) {
     return P;
 }
 
+void dealokasi(address_mahasiswa P){
+    
+    delete P;
+    
+}
+
 void insertFirst(List_mahasiswa &L, address_mahasiswa P) {
     address_mahasiswa Q;
     if(first(L) == NULL) {
@@ -28,6 +34,77 @@ void insertFirst(List_mahasiswa &L, address_mahasiswa P) {
         first(L) = P;
     }
 }
+
+void deleteFirst(List_mahasiswa &L, address_mahasiswa &P){
+    
+    if(first(L) == NULL){
+        
+        cout << "Listnya udah kosong" << endl;
+        
+    }else if(next(first(L)) == first(L)){
+        
+        P = first(L);
+        first(L) = NULL;
+        
+    }else{
+        address_mahasiswa Q;
+
+        Q = first(L);
+        while(next(Q) != first(L)){
+            Q = next(Q);
+        }
+        P = first(L);
+        first(L) = next(P);
+        next(Q) = first(L);
+        next(P) = NULL;
+
+    }
+    
+}
+
+void deleteLast(List_mahasiswa &L, address_mahasiswa &P){
+    
+    address_mahasiswa Q;
+    
+    if(first(L) == NULL){
+        
+        cout << "Listnya udah kosong" << endl;
+        
+    }else if(next(first(L)) == first(L)){
+        
+        P = first(L);
+        first(L) = NULL;
+        
+    }else{
+        
+        Q = first(L);
+        while(next(Q) != first(L)){
+            
+            Q = next(Q);
+            
+        }
+        P = next(Q);
+        next(Q) = first(L);
+        
+    }
+    
+}
+void deleteAfter(List_mahasiswa &L, address_mahasiswa Prec, address_mahasiswa &P){
+    
+    if(first(L) == NULL){
+        
+        cout << "Listnya udah kosong" << endl;
+        
+    }else if(findElmMahasiswa(L, info(Prec).nama ) != NULL){
+        
+        P = next(Prec);
+        next(Prec) = next(P);
+        next(P) = NULL;
+        
+    }
+    
+}
+
 
 void printInfo(List_mahasiswa L) {
     cout << endl << "Berikut Merupakan List Mahasiswa : " << endl;
