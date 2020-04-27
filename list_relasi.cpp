@@ -14,10 +14,6 @@ address_relasi alokasi(address_mahasiswa P, address_matkul C, string status) {
     return Q;
 }
 
-void dealokasi(address_relasi P){
-    delete P;
-}
-
 void insertFirst(List_relasi &L, address_relasi P) {
     if(first(L) == NULL){
         first(L) = P;
@@ -27,19 +23,55 @@ void insertFirst(List_relasi &L, address_relasi P) {
     }
 }
 
-void printInfo(List_relasi L, List_mahasiswa M) {
+void printInfoMatkul(List_relasi L, List_matkul M) {
+    cout << endl << "Berikut Merupakan List Relasi Matkul Dan Mahasiswa : " << endl;
+    address_relasi P = first(L);
+    address_matkul Q = first(M);
+    bool found;
+    if(P != NULL){
+       while(Q != NULL){
+        cout << info(Q) << " : ";
+        while(P != NULL){
+            if(info(Q) == info(matkul(P))){
+                cout << info(mahasiswa(P)).nama << " (" << info(P) << "), ";
+                found = true;
+            }
+            P = next(P);
+        }
+
+        if(!found){
+            cout << "-";
+        }
+
+        cout << endl;
+        P = first(L);
+        Q = next(Q);
+       }
+    } else {
+        cout << "List Relasi Kosong" << endl;
+    }
+}
+
+void printInfoMahasiswa(List_relasi L, List_mahasiswa M) {
     cout << endl << "Berikut Merupakan List Relasi Mahasiswa Dan Matkul : " << endl;
     address_relasi P = first(L);
     address_mahasiswa Q = first(M);
+    bool found;
     if(P != NULL){
        while(Q != NULL){
         cout << info(Q).nama << " : ";
         while(P != NULL){
             if(info(Q).nama == info(mahasiswa(P)).nama){
                 cout << info(matkul(P)) << " (" << info(P) << "), ";
+                found = true;
             }
             P = next(P);
         }
+
+        if(!found){
+            cout << "-";
+        }
+
         cout << endl;
         P = first(L);
         Q = next(Q);
@@ -221,13 +253,10 @@ void delete_relasiMaha(List_relasi &L, List_mahasiswa &M, string nama){
         }
 
         if(Q == R){
-            cout << "First";
             deleteFirst(M);
         } else if(next(R) == NULL){
-            cout << "Last";
             deleteLast(M);
         } else {
-            cout << "After";
             deleteAfter(M, R);
         }
     } else {
@@ -240,7 +269,6 @@ void delete_relasiMatk(List_relasi &L, List_matkul &M, string nama){
     address_relasi P = first(L);
     address_matkul Q = first(M);
     address_matkul R = findElmMatkul(M, nama);
-    cout << "TEST 1" << endl;
     if(R != NULL){
         while(P != NULL){
             if(info(matkul(P)) == nama){
@@ -258,13 +286,10 @@ void delete_relasiMatk(List_relasi &L, List_matkul &M, string nama){
         }
 
         if(Q == R){
-            cout << "First";
             deleteFirst(M);
         } else if(next(R) == NULL){
-            cout << "Last";
             deleteLast(M);
         } else {
-            cout << "After";
             deleteAfter(M, R);
         }
     } else {
@@ -284,8 +309,6 @@ void deleteFirst(List_mahasiswa &L){
         first(L) = next(Q);
         next(Q) = NULL;
     }
-    delete Q;
-
 }
 void deleteLast(List_mahasiswa &L){
     address_mahasiswa Q = first(L);
@@ -313,7 +336,6 @@ void deleteAfter(List_mahasiswa &L, address_mahasiswa &P){
         next(Q) = next(P);
         next(P) = NULL;
     }
-    delete P;
 }
 
 /*From List Matkul*/
@@ -328,8 +350,6 @@ void deleteFirst(List_matkul &L){
         first(L) = next(Q);
         next(Q) = NULL;
     }
-    delete Q;
-
 }
 
 void deleteLast(List_matkul &L){
@@ -358,7 +378,6 @@ void deleteAfter(List_matkul &L, address_matkul &P){
         next(Q) = next(P);
         next(P) = NULL;
     }
-    delete P;
 }
 
 void presentase(List_relasi LR, List_matkul LM){
