@@ -18,17 +18,10 @@ address_mahasiswa alokasi_mahasiswa(string nama, string nim) {
 }
 
 void insertFirst(List_mahasiswa &L, address_mahasiswa P) {
-    address_mahasiswa Q;
-    if(first(L) == NULL) {
+    if(first(L) == NULL){
         first(L) = P;
-        next(P) = P;
     } else {
-        Q = first(L);
-        while(next(Q) != first(L)) {
-            Q = next(Q);
-        }
         next(P) = first(L);
-        next(Q) = P;
         first(L) = P;
     }
 }
@@ -38,11 +31,11 @@ void printInfo(List_mahasiswa L) {
     int i = 1;
     address_mahasiswa P = first(L);
     if(first(L)!=NULL) {
-        do {
+        while(P != NULL){
             cout<< i << ". " << info(P).nama << " (" << info(P).nim << ")" << endl;
             P = next(P);
             i++;
-        } while((P)!=first(L));
+        }
     } else {
         cout << "List Mahasiswa Kosong" << endl;
     }
@@ -50,23 +43,23 @@ void printInfo(List_mahasiswa L) {
 
 address_mahasiswa findElmMahasiswa(List_mahasiswa L, string nama) {
     address_mahasiswa P = first(L);
-    do {
-        if(info(P).nama == nama) {
+    while(P != NULL){
+        if(info(P).nama == nama){
             return P;
         }
         P = next(P);
-    } while(P != first(L));
+    }
     return NULL;
 }
 
 address_mahasiswa findElmMahasiswaByNIM(List_mahasiswa L, string nim) {
     address_mahasiswa P = first(L);
-    do {
-        if(info(P).nim == nim) {
+    while(P != NULL){
+        if(info(P).nim == nim){
             return P;
         }
         P = next(P);
-    } while(P != first(L));
+    }
     return NULL;
 }
 
