@@ -5,9 +5,7 @@
 using namespace std;
 
 #define next(P) P->next
-#define prev(P) P->prev
 #define first(L) L.first
-#define last(L) L.last
 #define info(P) P->info
 
 typedef string infotype_matkul;
@@ -16,19 +14,16 @@ typedef struct elmlist_matkul *address_matkul;
 struct elmlist_matkul{
     infotype_matkul info;
     address_matkul next;
-    address_matkul prev;
 };
 
 struct List_matkul{
     address_matkul first;
-    address_matkul last;
 };
 
 /** TIDAK PERLU MODIFIKASI */
 void createList(List_matkul &L);
 void insertFirst(List_matkul &L, address_matkul P);
 void insertLast(List_matkul &L, address_matkul P);
-void insertAfter(address_matkul Prec, address_matkul P);
 void deleteFirst(List_matkul &L, address_matkul &P);
 void deleteLast(List_matkul &L, address_matkul &P);
 void deleteAfter(List_matkul &L, address_matkul Prec, address_matkul &P);

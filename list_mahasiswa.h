@@ -6,6 +6,7 @@ using namespace std;
 
 #define first(L) L.first
 #define next(P) P->next
+#define prev(P) P->prev
 #define info(P) P->info
 
 struct mahasiswa{
