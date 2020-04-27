@@ -9,5 +9,4 @@ height="400px" width="850px">
 ## Non Instruction Feature:
 1. Cari Data Mahasiswa Berdasarkan NIM
 2. Menampilkan Jumlah Presentase Suatu Mata Kuliah
-<img src="https://raw.githubusercontent.com/ShinyQ/Laravel-Simplify_Daily_Checkin/master/pic/Pic2.PNG"
-height="400px" width="850px">
+
