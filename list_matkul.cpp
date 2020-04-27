@@ -11,10 +11,6 @@ address_matkul alokasi_matkul(infotype_matkul x) {
     return P;
 }
 
-void dealokasi(address_matkul P){
-    delete P;
-}
-
 void insertFirst(List_matkul &L, address_matkul P) {
     if(first(L) == NULL){
         first(L) = P;

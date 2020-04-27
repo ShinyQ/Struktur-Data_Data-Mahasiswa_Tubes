@@ -53,8 +53,8 @@ void deleteAfter(List_matkul &L, address_matkul &P);
 
 /** PERLU MODIFIKASI */
 address_relasi alokasi(address_mahasiswa P, address_matkul C, string status);
-void dealokasi(address_relasi P);
 address_relasi findElm(List_relasi L, address_mahasiswa P, address_matkul C);
-void printInfo(List_relasi L, List_mahasiswa M);
+void printInfoMatkul(List_relasi L, List_matkul M);
+void printInfoMahasiswa(List_relasi L, List_mahasiswa M);
 void presentase(List_relasi LR, List_matkul LM);
 

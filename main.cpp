@@ -44,6 +44,9 @@ void tambah_mahasiswa(){
 
         P = alokasi_mahasiswa(nama, nim);
         insertFirst(LP, P);
+
+        cout << endl << "Input Lagi (Y/N) ? ";
+        cin >> input;
     }
 }
 
@@ -114,7 +117,7 @@ void cariMahasiswaByNIM(){
 
         findMahasiswaByNIM(LR, LP, nim);
 
-        cout << endl << endl << "Input Lagi (Y/N) ? ";
+        cout << endl << endl << "Cari Lagi (Y/N) ? ";
         cin >> input;
     }
 }
@@ -130,8 +133,18 @@ void hapus_mahasiswa(){
 
         cout << "Nama Mahasiswa : ";
         getline(cin, nama);
+        P = findElmMahasiswa(LP, nama);
 
-        delete_relasiMaha(LR, LP, nama);
+        if(P != NULL){
+          delete_relasiMaha(LR, LP, nama);
+          cout << "Sukses menghapus data mahasiswa " << nama << endl;
+          cout << endl << "Hapus Lagi (Y/N) ? ";
+          cin >> input;
+        } else{
+            cout << "Nama yang dimasukkan tidak ada di list." << endl;
+            cout << endl << "Input Lagi (Y/N) ? ";
+            cin >> input;
+        }
     }
 }
 
@@ -145,7 +158,17 @@ void hapus_matkul(){
         cout << "Nama Mata Kuliah : ";
         getline(cin, nama);
 
-        delete_relasiMatk(LR, LC, nama);
+        C = findElmMatkul(LC, nama);
+        if(C != NULL){
+          delete_relasiMatk(LR, LC, nama);
+          cout << "Sukses menghapus data matkul " << nama << endl;
+          cout << endl << "Hapus Lagi (Y/N) ? ";
+          cin >> input;
+        } else{
+            cout << "Nama yang dimasukkan tidak ada di list." << endl;
+            cout << endl << "Input Lagi (Y/N) ? ";
+            cin >> input;
+        }
     }
 }
 
@@ -228,9 +251,9 @@ int main()
     if(pilih_menu == 1){
         printInfo(LP);
     } else if(pilih_menu == 2){
-        printInfo(LC);
+        printInfoMatkul(LR, LC);
     } else if(pilih_menu == 3){
-        printInfo(LR, LP);
+        printInfoMahasiswa(LR, LP);
     } else if(pilih_menu == 4){
         tambah_mahasiswa();
     } else if(pilih_menu == 5){

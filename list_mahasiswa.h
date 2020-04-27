@@ -30,16 +30,10 @@ struct List_mahasiswa {
 /** TIDAK PERLU MODIFIKASI */
 void createList(List_mahasiswa &L);
 void insertFirst(List_mahasiswa &L, address_mahasiswa P);
-void insertAfter(List_mahasiswa &L, address_mahasiswa Prec, address_mahasiswa P);
-void insertLast(List_mahasiswa &L, address_mahasiswa P);
-void deleteFirst(List_mahasiswa &L, address_mahasiswa &P);
-void deleteLast(List_mahasiswa &L, address_mahasiswa &P);
-void deleteAfter(List_mahasiswa &L, address_mahasiswa Prec, address_mahasiswa &P);
 
 
 /** PERLU MODIFIKASI */
 address_mahasiswa alokasi_mahasiswa(string nama, string nim);
-void dealokasi(address_mahasiswa P);
 address_mahasiswa findElmMahasiswa(List_mahasiswa L, string x);
 address_mahasiswa findElmMahasiswaByNIM(List_mahasiswa L, string nim);
 void printInfo(List_mahasiswa L);
