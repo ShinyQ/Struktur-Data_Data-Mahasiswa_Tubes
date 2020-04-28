@@ -408,7 +408,11 @@ void presentase(List_relasi LR, List_matkul LM){
                     P = next(P);
                 }
                 persen = sumRLulus / sumR;
-                cout << "Tingkat Kelulusan "<< round(persen*100.0) << "%" << " Dari " << sumR << " Orang." << endl;
+                if(sumR == 0){
+                    cout << "Belum Ada Yang Mengambil Mata Kuliah Ini." << endl;
+                } else {
+                    cout << "Tingkat Kelulusan "<< round(persen*100.0) << "%" << " Dari " << sumR << " Orang." << endl;
+                }
 
                 P = first(LR);
                 sumRLulus = 0.0;

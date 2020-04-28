@@ -4,9 +4,9 @@ Aplikasi Kelola Data Mahasiswa Dan Mata Kuliah Pilihan dengan menggunakan C++ be
 ## Instruction:
 
 <img src="https://raw.githubusercontent.com/ShinyQ/Struktur-Data_Data-Mahasiswa_Tubes/master/Capture.PNG"
-height="400px" width="850px">
+height="400px" width="650px">
 
 ## Non Instruction Feature:
 1. Cari Data Mahasiswa Berdasarkan NIM
 2. Menampilkan Jumlah Presentase Suatu Mata Kuliah
-
+3. Edit Nama Mata Kuliah

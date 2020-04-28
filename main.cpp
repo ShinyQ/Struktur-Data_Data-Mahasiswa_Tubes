@@ -1,6 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
-#include <string>
 
 using namespace std;
 #include "list_matkul.h"
@@ -17,16 +15,17 @@ bool used = false;
 
 void menu(){
     cout << endl;
-    cout << "========================================================================================" << endl;
-    cout << "=                                      Data Mahasiswa                                  =" << endl;
-    cout << "========================================================================================" << endl;
-    cout << "= 1. Tampil Mahasiswa                     |  7. Hapus Mahasiswa                        =" << endl;
-    cout << "= 2. Tampil Matkul                        |  8. Hapus Matkul                           =" << endl;
-    cout << "= 3. Tampil Relasi Mahasiswa Dan Matkul   |  9. Tampil Mahasiswa Tidak Lulus Matkul    =" << endl;
-    cout << "= 4. Tambah Mahasiswa                     |  10. Tampil Matkul Paling Banyak Dipilih   =" << endl;
-    cout << "= 5. Tambah Matkul                        |  11. Cari Mahasiswa Berdasarkan NIM        =" << endl;
-    cout << "= 6. Tambah Relasi Mahasiswa Dan Matkul   |  12. Tampil Presentase Kelulusan Matkul    =" << endl;
-    cout << "========================================================================================" << endl;
+    cout << "=========================================================================================" << endl;
+    cout << "=                                      Data Mahasiswa                                   =" << endl;
+    cout << "=========================================================================================" << endl;
+    cout << "= 1. Tampil Mahasiswa                     |  8.  Hapus Mahasiswa                        =" << endl;
+    cout << "= 2. Tampil Matkul                        |  9.  Hapus Matkul                           =" << endl;
+    cout << "= 3. Tampil Relasi Mahasiswa Dan Matkul   |  10. Tampil Mahasiswa Tidak Lulus Matkul    =" << endl;
+    cout << "= 4. Tambah Mahasiswa                     |  11. Tampil Matkul Paling Banyak Dipilih    =" << endl;
+    cout << "= 5. Tambah Matkul                        |  12. Cari Mahasiswa Berdasarkan NIM         =" << endl;
+    cout << "= 6. Tambah Relasi Mahasiswa Dan Matkul   |  13. Tampil Presentase Kelulusan Matkul     =" << endl;
+    cout << "= 7. Edit Nama Mata Kuliah                |  14. Keluar Program                         =" << endl;
+    cout << "=========================================================================================" << endl;
 }
 
 void tambah_mahasiswa(){
@@ -172,9 +171,73 @@ void hapus_matkul(){
     }
 }
 
-int main()
-{
+void edit_matkul(){
+    string nama, edit_nama, input;
+    input = "y";
+    while(input == "Y" || input == "y"){
+        cout << endl << "Silahkan Memasukkan Nama Mata Kuliah Yang Ingin Di Upadate :" << endl;
+        getline(cin, input);
+
+        cout << "Nama Mata Kuliah : ";
+        getline(cin, nama);
+
+        C = findElmMatkul(LC, nama);
+        if(C != NULL){
+          cout << "Edit Nama Mata Kuliah : ";
+          getline(cin, edit_nama);
+          info(C) = edit_nama;
+
+          cout << "Sukses mengedit nama matkul " << nama << " menjadi " << edit_nama << endl;
+          cout << endl << "Edit Lagi (Y/N) ? ";
+          cin >> input;
+        } else{
+            cout << "Nama yang dimasukkan tidak ada di list." << endl;
+            cout << endl << "Input Lagi (Y/N) ? ";
+            cin >> input;
+        }
+    }
+}
+
+void pilih_menu_list(){
+    menu();
     int pilih_menu;
+
+    cout << endl << "Silahkan Memilih Menu : ";
+    cin >> pilih_menu;
+
+    if(pilih_menu == 1){
+        printInfo(LP);
+    } else if(pilih_menu == 2){
+        printInfoMatkul(LR, LC);
+    } else if(pilih_menu == 3){
+        printInfoMahasiswa(LR, LP);
+    } else if(pilih_menu == 4){
+        tambah_mahasiswa();
+    } else if(pilih_menu == 5){
+        tambah_matkul();
+    } else if(pilih_menu == 6){
+        tambah_relasi();
+    } else if(pilih_menu == 7){
+        edit_matkul();
+    } else if(pilih_menu == 8){
+        hapus_mahasiswa();
+    } else if(pilih_menu == 9){
+        hapus_matkul();
+    } else if(pilih_menu == 10){
+        printTidakLulus(LR, LC);
+    } else if(pilih_menu == 11){
+        printMatkulBanyakDipilih(LR, LC);
+    } else if(pilih_menu == 12){
+        cariMahasiswaByNIM();
+    } else if(pilih_menu == 13){
+        presentase(LR, LC);
+    } else {
+        exit(EXIT_FAILURE);
+    }
+    pilih_menu_list();
+}
+
+void data(){
     if(used == false){
         createList(LP);
         createList(LC);
@@ -243,40 +306,12 @@ int main()
         R = alokasi(P,C, "Tidak Lulus");
         insertFirst(LR,R);
     }
+}
 
-    menu();
-    cout << endl << "Silahkan Memilih Menu : ";
-    cin >> pilih_menu;
-
-    if(pilih_menu == 1){
-        printInfo(LP);
-    } else if(pilih_menu == 2){
-        printInfoMatkul(LR, LC);
-    } else if(pilih_menu == 3){
-        printInfoMahasiswa(LR, LP);
-    } else if(pilih_menu == 4){
-        tambah_mahasiswa();
-    } else if(pilih_menu == 5){
-        tambah_matkul();
-    } else if(pilih_menu == 6){
-        tambah_relasi();
-    } else if(pilih_menu == 7){
-        hapus_mahasiswa();
-    } else if(pilih_menu == 8){
-        hapus_matkul();
-    } else if(pilih_menu == 9){
-        printTidakLulus(LR, LC);
-    } else if(pilih_menu == 10){
-        printMatkulBanyakDipilih(LR, LC);
-    } else if(pilih_menu == 11){
-        cariMahasiswaByNIM();
-    }else if(pilih_menu == 12){
-        presentase(LR, LC);
-    }else {
-        exit(EXIT_FAILURE);
-    }
-    main();
-
+int main()
+{
+    data();
+    pilih_menu_list();
     return 0;
 }
 
