@@ -67,15 +67,13 @@
 	"list_relasi.h"
 	<cmath>
 
-1588013359 c:\users\shinyq\desktop\tubes std\list_relasi.h
+1588083722 c:\users\shinyq\desktop\tubes std\list_relasi.h
 	"list_matkul.h"
 	"list_mahasiswa.h"
 	<iostream>
 
-1588013951 source:c:\users\shinyq\desktop\tubes std\main.cpp
+1588108010 source:c:\users\shinyq\desktop\tubes std\main.cpp
 	<iostream>
-	<stdlib.h>
-	<string>
 	"list_matkul.h"
 	"list_mahasiswa.h"
 	"list_relasi.h"
