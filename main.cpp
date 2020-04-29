@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 #include "list_matkul.h"
@@ -28,6 +29,13 @@ void menu(){
     cout << "=========================================================================================" << endl;
 }
 
+bool cek_inputan(string input){
+    if(input.length() == 0){
+        cout << "Inputan Tidak Boleh Kosong" <<endl <<endl;
+    }
+    return input.length() == 0;
+}
+
 void tambah_mahasiswa(){
     string nama, nim, input;
     input = "y";
@@ -35,11 +43,16 @@ void tambah_mahasiswa(){
         cout << endl << "Silahkan Memasukkan Data Mahasiswa :" << endl;
         getline(cin, input);
 
-        cout << "Nama Mahasiswa : ";
-        getline(cin, nama);
+        do{
+            cout << "Nama Mahasiswa : ";
+            getline(cin, nama);
+        }while(cek_inputan(nama));
 
-        cout << "NIM : ";
-        getline(cin, nim);
+
+        do{
+            cout << "NIM : ";
+            getline(cin, nim);
+        }while(cek_inputan(nim));
 
         P = alokasi_mahasiswa(nama, nim);
         insertFirst(LP, P);
@@ -56,8 +69,10 @@ void tambah_matkul(){
         cout << endl << "Silahkan Memasukkan Data Mata Kuliah :" << endl;
         getline(cin, input);
 
-        cout << "Nama Mata Kuliah : ";
-        getline(cin, nama);
+        do{
+            cout << "Nama Mata Kuliah : ";
+            getline(cin, nama);
+        }while(cek_inputan(nama));
 
         C = alokasi_matkul(nama);
         insertFirst(LC, C);
@@ -84,7 +99,7 @@ void tambah_relasi(){
             getline(cin, nama_matkul);
             C = findElmMatkul(LC, nama_matkul);
             if (C == NULL){
-            cout << "Mata Kuliah Tersebut Tidak Ditemukan" << endl;
+                cout << "Mata Kuliah Tersebut Tidak Ditemukan" << endl;
             } else {
                 cout << "Masukkan Status Kelulusan (Lulus / Tidak Lulus) : ";
                 getline(cin, status);
@@ -175,7 +190,7 @@ void edit_matkul(){
     string nama, edit_nama, input;
     input = "y";
     while(input == "Y" || input == "y"){
-        cout << endl << "Silahkan Memasukkan Nama Mata Kuliah Yang Ingin Di Upadate :" << endl;
+        cout << endl << "Silahkan Memasukkan Nama Mata Kuliah Yang Ingin Di Update :" << endl;
         getline(cin, input);
 
         cout << "Nama Mata Kuliah : ";
@@ -183,15 +198,17 @@ void edit_matkul(){
 
         C = findElmMatkul(LC, nama);
         if(C != NULL){
-          cout << "Edit Nama Mata Kuliah : ";
-          getline(cin, edit_nama);
+          do{
+              cout << "Edit Nama Mata Kuliah : ";
+              getline(cin, edit_nama);
+          }while(cek_inputan(edit_nama));
           info(C) = edit_nama;
 
           cout << "Sukses mengedit nama matkul " << nama << " menjadi " << edit_nama << endl;
           cout << endl << "Edit Lagi (Y/N) ? ";
           cin >> input;
         } else{
-            cout << "Nama yang dimasukkan tidak ada di list." << endl;
+            cout << "Nama mata kuliah tersebut tidak ada di list." << endl;
             cout << endl << "Input Lagi (Y/N) ? ";
             cin >> input;
         }
@@ -202,8 +219,15 @@ void pilih_menu_list(){
     menu();
     int pilih_menu;
 
-    cout << endl << "Silahkan Memilih Menu : ";
-    cin >> pilih_menu;
+    do{
+        cout << endl << "Silahkan Memilih Menu : ";
+        cin >> pilih_menu;
+
+        if(pilih_menu < 1 || pilih_menu > 14){
+            cout << "Menu Tersebut Tidak Valid." << endl;
+        }
+    } while(pilih_menu < 1 || pilih_menu > 14);
+
 
     if(pilih_menu == 1){
         printInfo(LP);
