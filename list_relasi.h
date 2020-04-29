@@ -25,7 +25,6 @@ struct List_relasi{
     address_relasi first;
 };
 
-/** TIDAK PERLU MODIFIKASI */
 void createList(List_relasi &L);
 void insertFirst(List_relasi &L, address_relasi P);
 void deleteFirst(List_relasi &L);
@@ -49,7 +48,6 @@ void deleteLast(List_matkul &L);
 void deleteAfter(List_matkul &L, address_matkul &P);
 
 
-/** PERLU MODIFIKASI */
 address_relasi alokasi(address_mahasiswa P, address_matkul C, string status);
 address_relasi findElm(List_relasi L, address_mahasiswa P, address_matkul C);
 void printInfoMatkul(List_relasi L, List_matkul M);

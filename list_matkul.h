@@ -20,11 +20,9 @@ struct List_matkul{
     address_matkul first;
 };
 
-/** TIDAK PERLU MODIFIKASI */
 void createList(List_matkul &L);
 void insertFirst(List_matkul &L, address_matkul P);
 
-/** PERLU MODIFIKASI */
 address_matkul alokasi_matkul(infotype_matkul x);
 address_matkul findElmMatkul(List_matkul L, string x);
 void printInfo(List_matkul L);
