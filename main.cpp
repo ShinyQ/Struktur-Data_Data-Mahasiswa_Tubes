@@ -48,14 +48,16 @@ void tambah_mahasiswa(){
             getline(cin, nama);
         }while(cek_inputan(nama));
 
-
-        do{
-            cout << "NIM : ";
-            getline(cin, nim);
-        }while(cek_inputan(nim));
-
-        P = alokasi_mahasiswa(nama, nim);
-        insertFirst(LP, P);
+        if(!findElmMahasiswa(LP, nama)){
+            do{
+                cout << "NIM : ";
+                getline(cin, nim);
+            }while(cek_inputan(nim));
+            P = alokasi_mahasiswa(nama, nim);
+            insertFirst(LP, P);
+        } else {
+            cout << "Data Mahasiswa Tersebut Sudah Ada" << endl;
+        }
 
         cout << endl << "Input Lagi (Y/N) ? ";
         cin >> input;
@@ -74,8 +76,13 @@ void tambah_matkul(){
             getline(cin, nama);
         }while(cek_inputan(nama));
 
-        C = alokasi_matkul(nama);
-        insertFirst(LC, C);
+
+        if(!findElmMatkul(LC, nama)){
+            C = alokasi_matkul(nama);
+            insertFirst(LC, C);
+        } else {
+            cout << "Data Matkul Tersebut Sudah Ada" << endl;
+        }
 
         cout << endl << "Input Lagi (Y/N) ? ";
         cin >> input;
@@ -101,18 +108,22 @@ void tambah_relasi(){
             if (C == NULL){
                 cout << "Mata Kuliah Tersebut Tidak Ditemukan" << endl;
             } else {
-                cout << "Masukkan Status Kelulusan (Lulus / Tidak Lulus) : ";
-                getline(cin, status);
-                if(status == "Lulus" || status == "lulus"){
-                    status = "Lulus";
-                    R = alokasi(P,C, status);
-                    insertFirst(LR,R);
-                } else if (status == "Tidak Lulus" || status == "tidak lulus"){
-                    status = "Tidak Lulus";
-                    R = alokasi(P,C, status);
-                    insertFirst(LR,R);
+                if(!findElmRelasi(LR, nama_matkul, nama_mahasiswa)){
+                    cout << "Masukkan Status Kelulusan (Lulus / Tidak Lulus) : ";
+                    getline(cin, status);
+                    if(status == "Lulus" || status == "lulus"){
+                        status = "Lulus";
+                        R = alokasi(P,C, status);
+                        insertFirst(LR,R);
+                    } else if (status == "Tidak Lulus" || status == "tidak lulus"){
+                        status = "Tidak Lulus";
+                        R = alokasi(P,C, status);
+                        insertFirst(LR,R);
+                    } else {
+                        cout << "Input Status Tidak Valid" << endl;
+                    }
                 } else {
-                    cout << "Input Status Tidak Valid" << endl;
+                    cout << "Data Tersebut Sudah Ada" << endl;
                 }
             }
         }
