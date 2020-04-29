@@ -188,6 +188,17 @@ address_relasi findElm(List_relasi L, address_mahasiswa P, address_matkul C) {
     return NULL;
 }
 
+bool findElmRelasi(List_relasi L, string nama_matkul, string nama_mahasiswa) {
+    address_relasi Q = first(L);
+    while(Q != NULL) {
+        if(info(mahasiswa(Q)).nama == nama_mahasiswa && info(matkul(Q)) == nama_matkul) {
+            return true;
+        }
+        Q = next(Q);
+    }
+    return false;
+}
+
 /*List Relasi*/
 
 void deleteFirst(List_relasi &L){

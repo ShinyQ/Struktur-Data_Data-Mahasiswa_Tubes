@@ -35,6 +35,7 @@ void printMatkulBanyakDipilih(List_relasi L, List_matkul M);
 void findMahasiswaByNIM(List_relasi L, List_mahasiswa M, string nim);
 void delete_relasiMaha(List_relasi &L, List_mahasiswa &M, string nama);
 void delete_relasiMatk(List_relasi &L, List_matkul &M, string nama);
+bool findElmRelasi(List_relasi L, string nama_matkul, string nama_mahasiswa);
 
 /*From list_mahasiswa*/
 void deleteFirst(List_mahasiswa &L);

@@ -17,4 +17,5 @@ height="400px" width="650px">
 3. Cek Data Kosong
 4. Cek Data Tidak Ditemukan
 5. Menginput Lagi 
+5. Mencegah Duplikasi Data
 
